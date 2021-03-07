@@ -8,10 +8,13 @@ interface PokemonDao {
     suspend fun insertOne(entity: PokemonEntity)
 
     @Insert
-    suspend fun insertAll(entities: List<PokemonEntity>)
+    suspend fun insertAll(entities: List<PokemonEntity>?)
 
     @Delete
     suspend fun deleteOne(entity: PokemonEntity)
+
+    @Query("delete FROM pokemon_table")
+    suspend fun deleteAll()
 
     @Query("SELECT * FROM pokemon_table")
     suspend fun getAll(): List<PokemonEntity>

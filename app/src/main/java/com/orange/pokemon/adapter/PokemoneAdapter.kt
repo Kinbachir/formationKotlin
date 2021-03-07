@@ -8,13 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.orange.pokemon.R
-import com.orange.pokemon.data.PokemonDatabase
 import com.orange.pokemon.data.PokemonEntity
 import com.orange.pokemon.databinding.ItempokemoneBinding
-
-import com.orange.pokemon.model.Pokemon
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 class PokemoneAdapter :ListAdapter<PokemonEntity, PokemoneAdapter.pokemoneViewHolder>(pokemoneDiffUtils()){
@@ -29,7 +24,6 @@ class PokemoneAdapter :ListAdapter<PokemonEntity, PokemoneAdapter.pokemoneViewHo
                 pokemoneName.text = pokemone.name
                 pokemoneEvolvedfrom.text = pokemone.evolvedfrom
                 pokemoneReason.text = pokemone.reason
-                pokemoneXdescription.text = pokemone.xdescription
                 Glide.with(context)
                     .load(pokemone.imageurl)
                     .placeholder(R.drawable.ic_launcher_background)
